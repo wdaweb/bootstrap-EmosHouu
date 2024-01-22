@@ -14,7 +14,23 @@
     rel="stylesheet">
   <!-- 引入aos動畫 -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- lightbox -->
+  <link rel="stylesheet" href="./css/magnific-popup.css">
+  <link rel="stylesheet" href="./css/magnific-popup-self.css">
+
+  <!-- swiper -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css' />
+
   <style>
+    .swiper-3d .swiper-slide-shadow {
+      background: rgba(0, 0, 0, 0);
+    }
+
+    /* Add this CSS to remove shadow around images in full-screen mode */
+    .swiper-slide img {
+      box-shadow: none;
+    }
+
     #section01 {
       background-color: #F3F5F7;
     }
@@ -660,34 +676,51 @@
   </div>
 
 
+
+  <!-- 燈箱 -->
+
+
   <div id="section05" class="container">
     <div class="row">
-      <div class="col-sm-12 col-md-4">
-        <a href="#">
-          <img class="w-100 mb-3" decoding="async" loading="lazy"
-            src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/banner-1.png"
-            alt="">
-        </a>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="col-sm-12 col-md-4 m-auto">
+              <a href="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/banner-1.png"
+                class="image-popup-no-margins">
+                <img class="w-100 mb-3 card-img-top" decoding="async" loading="lazy"
+                  src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/banner-1.png"
+                  alt="">
+              </a>
+            </div>
+          </div>
+
+
+          <div class="swiper-slide">
+            <div class="col-12 col-md-4 m-auto">
+
+              <a class="image-popup-no-margins"
+                href="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/banner-2.png">
+                <img class="w-100 mb-3" decoding="async" loading="lazy"
+                  src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/banner-2.png"
+                  alt="">
+              </a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="col-sm-12 col-md-4 m-auto">
+              <a class="image-popup-no-margins"
+                href="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/banner-3.png">
+                <img class="w-100 mb-3" decoding="async" loading="lazy"
+                  src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/banner-3.png"
+                  alt="">
+              </a>
+            </div>
+          </div>
+
+        </div>
       </div>
-
-
-
-      <div class="col-sm-12 col-md-4">
-        <a href="#">
-          <img class="w-100 mb-3" decoding="async" loading="lazy"
-            src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/banner-2.png"
-            alt="">
-        </a>
-      </div>
-
-      <div class="col-sm-12 col-md-4">
-        <a href="#">
-          <img class="w-100 mb-3" decoding="async" loading="lazy"
-            src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/banner-3.png"
-            alt="">
-        </a>
-      </div>
-
     </div>
   </div>
 
@@ -705,7 +738,8 @@
               <div class="price-list__item-separator"></div>
               <div class="price-list__item-price">$19.99</div>
             </div>
-            <div class="price-list__item-desc">Two fried eggs with cheese & two breakfast meats made to perfection</div>
+            <div class="price-list__item-desc">Two fried eggs with cheese & two breakfast meats made to perfection
+            </div>
           </li>
           <li class="price-list__item">
             <div class="foodList">
@@ -786,7 +820,8 @@
               <div class="price-list__item-separator"></div>
               <div class="price-list__item-price">$23.80</div>
             </div>
-            <div class="price-list__item-desc">Two fried eggs with cheese & two breakfast meats made to perfection</div>
+            <div class="price-list__item-desc">Two fried eggs with cheese & two breakfast meats made to perfection
+            </div>
           </li>
         </ul>
       </div>
@@ -807,7 +842,7 @@
   </div>
 
 
-  <div id="section08">
+  <div id="section08" class="popup-gallery">
     <div class="row w-100 m-auto">
       <div class="col-sm-12 col-md-6 imgdiv">
         <img decoding="async" class="w-100 mb-3"
@@ -830,69 +865,71 @@
           src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/project-11.png">
       </div>
     </div>
+  </div>
 
-    <div id="section09">
-      <div class="head_title">
-        <span class="headline__part headline__first"><span class="headline__label">Reservation</span></span>
-        <!-- <span class="headline__part headline__warm"><span class="headline__label4">Warm Atmosphere</span></span> -->
+  <div id="section09">
+    <div class="head_title">
+      <span class="headline__part headline__first"><span class="headline__label">Reservation</span></span>
+      <!-- <span class="headline__part headline__warm"><span class="headline__label4">Warm Atmosphere</span></span> -->
+    </div>
+    <div class="divColumn">
+      <div class="divider"></div>
+    </div>
+  </div>
+
+  <div id="section10" class="container">
+    <div class="row h-auto">
+      <div class="col-xs-12 col-sm-12 col-md-6">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7229.409399923957!2d121.41554954961366!3d25.044093658414152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bec9ad74b1%3A0xa639904a89f26435!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5YyX5Z-65a6c6Iqx6YeR6aas5YiG572y5rOw5bGx6IG35qWt6KiT57e05aC0!5e0!3m2!1szh-TW!2stw!4v1702196477452!5m2!1szh-TW!2stw"
+          width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      <div class="divColumn">
-        <div class="divider"></div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
+            <input type="text" class="form-control" placeholder="Name*">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
+            <input type="text" class="form-control" placeholder="Phone*">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
+            <input type="text" class="form-control" placeholder="ddd">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
+            <input type="text" class="form-control" placeholder="Time*">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-12 col-md-6 mb-3">
+            <input type="text" class="form-control" placeholder="Seats*">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
+            <input type="text" class="form-control" placeholder="Email*">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 mb-3">
+            <textarea class="form-control" rows="7" placeholder="notes"></textarea>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 mb-3 text-center">
+            <button type="button" class="btn btn-danger btn-lg m-auto">RESERVE</button>
+          </div>
+
+
+        </div>
       </div>
     </div>
-
-    <div id="section10" class="container">
-      <div class="row h-auto">
-        <div class="col-xs-12 col-sm-12 col-md-6">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7229.409399923957!2d121.41554954961366!3d25.044093658414152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bec9ad74b1%3A0xa639904a89f26435!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5YyX5Z-65a6c6Iqx6YeR6aas5YiG572y5rOw5bGx6IG35qWt6KiT57e05aC0!5e0!3m2!1szh-TW!2stw!4v1702196477452!5m2!1szh-TW!2stw"
-            width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-6">
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
-              <input type="text" class="form-control" placeholder="Name*">
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
-              <input type="text" class="form-control" placeholder="Phone*">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
-              <input type="text" class="form-control" placeholder="ddd">
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
-              <input type="text" class="form-control" placeholder="Time*">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-12 col-12 col-md-6 mb-3">
-              <input type="text" class="form-control" placeholder="Seats*">
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
-              <input type="text" class="form-control" placeholder="Email*">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 mb-3">
-              <textarea class="form-control" rows="7" placeholder="notes"></textarea>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 mb-3 text-center">
-              <button type="button" class="btn btn-danger btn-lg m-auto">RESERVE</button>
-            </div>
-
-
-          </div>
-        </div>
-      </div>
+  </div>
 
 
 
@@ -900,11 +937,11 @@
 
 
 
-      <!-- 建立aos動畫 -->
-      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-      <script>
-        AOS.init();
-      </script>
+  <!-- 建立aos動畫 -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
 
 
@@ -913,22 +950,36 @@
 
 
 
-      <script>
-        const priceItems = document.querySelectorAll('.foodList');
+  <script>
+    const priceItems = document.querySelectorAll('.foodList');
 
-        priceItems.forEach(item => {
-          const title = item.querySelector('.price-list__item-title');
-          const price = item.querySelector('.price-list__item-price');
-          const separator = item.querySelector('.price-list__item-separator');
+    priceItems.forEach(item => {
+      const title = item.querySelector('.price-list__item-title');
+      const price = item.querySelector('.price-list__item-price');
+      const separator = item.querySelector('.price-list__item-separator');
 
-          const titleWidth = title.offsetWidth;
-          const priceWidth = price.offsetWidth;
-          const lineWidth = item.offsetWidth - titleWidth - priceWidth;
+      const titleWidth = title.offsetWidth;
+      const priceWidth = price.offsetWidth;
+      const lineWidth = item.offsetWidth - titleWidth - priceWidth;
 
-          separator.style.width = lineWidth + 'px';
-        });
+      separator.style.width = lineWidth + 'px';
+    });
 
-      </script>
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'
+    integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=='
+    crossorigin='anonymous'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.js'></script>
+  <!-- lightbox -->
+  <script src="./js/jquery.magnific-popup.js"></script>
+  <script src="./js/jquery.magnific-self.js"></script>
+
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "cards",
+      grabCursor: true,
+    });
+  </script>
 </body>
 
 </html>
