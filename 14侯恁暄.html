@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!-- 1. 引入 bootstarp.css 使用樣式 -->
+  <link rel="stylesheet" href="./css/bootstrap.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans&family=Rubik&display=swap"
+    rel="stylesheet">
+  <!-- 引入aos動畫 -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    #section01 {
+      background-color: #F3F5F7;
+    }
+
+    .nav-item {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      padding-right: 20px;
+    }
+
+    .nav-link:hover {
+      border-bottom: 3px solid #53ae3b;
+      color: #25292d;
+    }
+
+    .nav-link {
+      color: #25292d;
+      padding-bottom: 2px;
+    }
+
+    .navbar-nav {
+      width: 500px;
+    }
+
+    .jet-logo__link {
+      margin-left: 100px;
+      padding-top: 10px;
+    }
+
+    #carouselExampleCaptions {
+      /* height:600px; */
+      height: 80vh;
+      /* 例如使用相對單位 */
+    }
+
+    .carousel-item {
+      /* height:600px; */
+      height: 80vh;
+      /* 例如使用相對單位 */
+    }
+
+    .d-block {
+      object-fit: cover;
+      object-position: center -100px;
+    }
+
+    .carousel-indicators [data-bs-target] {
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      border: 2px solid #53ae3b;
+    }
+
+    /* button:focus:not(:focus-visible) {
+        background-color: #53ae3b;
+      } */
+    .carousel-indicators {
+      justify-content: start;
+      margin-left: 8%;
+      margin-bottom: 2rem;
+    }
+
+    .slide_title {
+      color: #25292d;
+      font-family: "Rubik", Sans-serif;
+      text-transform: uppercase;
+      text-align: left;
+      font-size: 100px;
+      line-height: 110px;
+      margin-right: 10px;
+    }
+
+    .carousel-caption {
+      position: absolute;
+      left: 6%;
+      top: 100%;
+      opacity: 0;
+    }
+
+    .carousel-item.active .carousel-caption {
+      transition: opacity 0.5s, transform 0.5s;
+      top: 0;
+      opacity: 1;
+    }
+
+    .carousel-indicators .active {
+      opacity: 1;
+      background-color: #53ae3b;
+    }
+
+    .orderBtn {
+      height: 60px;
+      width: 236px;
+      background-color: #53ae3b;
+      border-radius: 10px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-family: "Rubik", Sans-serif;
+    }
+
+    .orderBtn:hover {
+      background-color: #25292d;
+      cursor: pointer;
+    }
+
+    .headline__label {
+      color: rgba(168, 171, 172, 0.6);
+      font-family: "Kaushan Script", Sans-serif;
+      font-size: 75px;
+      /* font-weight: 400;
+        letter-spacing: -1px; */
+    }
+
+    .headline__label2 {
+      color: #25292d;
+      font-family: "Rubik", Sans-serif;
+      font-size: 40px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .headline__part {
+      display: flex;
+      justify-content: center;
+    }
+
+    .headline__first {
+      position: relative;
+    }
+
+    .headline__second {
+      position: absolute;
+      top: 750px;
+      z-index: 99;
+      left: 35%;
+    }
+
+    .divider {
+      width: 200px;
+      height: 10px;
+      border-bottom: 2px solid #53ae3b;
+    }
+
+    .divColumn {
+      display: flex;
+      justify-content: center;
+    }
+
+    .content {
+      text-align: center;
+      width: 910px;
+      color: #7b7e81;
+      font-family: "Open Sans", Sans-serif;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 30px;
+      padding: 20px;
+    }
+
+    .contentBlock,
+    .elementor-widget-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .food {
+      display: flex;
+      justify-content: center;
+    }
+
+    .price-list__item {
+      list-style-type: none;
+      padding: 10px;
+    }
+
+
+
+    .foodList {
+      display: flex;
+    }
+
+    .price-list__item-separator {
+      /* width:lineWidth; */
+      height: 16px;
+      border-bottom: 1px dotted #25292d;
+    }
+
+    .price-list__item-title {
+      font-size: 15px;
+      padding-right: 2px;
+    }
+
+    .price-list__item-price {
+      font-size: 15px;
+      padding-left: 2px;
+    }
+
+    .price-list__item-desc {
+      font-family: "Open Sans", Sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 30px;
+      letter-spacing: 0px;
+      color: #7b7e81;
+      margin: -4px 0px 0px 0px;
+    }
+
+    .steakimg {
+      order: 2;
+      /* 將這個元素設定為第二個順序（右邊） */
+    }
+
+    .price-list-steak {
+      order: 1;
+      /* 將這個元素設定為第一個順序（左邊） */
+    }
+
+    .headline__second {
+      position: absolute;
+      top: 720px;
+      /* z-index: 99; */
+      left: 27%;
+    }
+
+    .headline__label {
+      font-size: 40px;
+    }
+
+    .headline__label2 {
+      color: #25292d;
+      font-family: "Rubik", Sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .divider {
+      width: 200px;
+      height: 5px;
+      border-bottom: 2px solid #53ae3b;
+      margin-bottom: 20px;
+    }
+
+    .food {
+      display: flex;
+    }
+
+
+    #section04 {
+      padding: 30px 0 30px 0;
+    }
+
+    .heading-title {
+      color: #25292d;
+      font-family: "Rubik", Sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      text-transform: uppercase;
+      border-bottom: 2px solid #53ae3b;
+    }
+
+    #section05 img {
+      object-fit: cover;
+    }
+
+
+
+    .viewArea {
+      display: flex;
+      justify-content: center;
+    }
+
+    .viewBtn {
+      height: 59px;
+      width: 212px;
+      background-color: #25292d;
+      color: white;
+      font-family: "Rubik", Sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-radius: 6px 6px 6px 6px;
+      padding: 23px 50px 22px 50px;
+    }
+
+    .viewBtn:hover {
+      background-color: #53ae3b;
+      cursor: pointer;
+    }
+
+    .headline__warm {
+      position: absolute;
+      top: 3290px;
+      z-index: 99;
+      left: 530px;
+    }
+
+    .imgBlock {
+      display: flex;
+      width: 100%;
+    }
+
+    .imgSize {
+      width: 40%;
+      /* height:412px; */
+    }
+
+    .imgSize img {
+      object-fit: cover;
+    }
+
+    iframe {
+      max-width: 100%;
+    }
+
+
+    @media (max-width: 768px) {
+      #carouselExampleCaptions {
+        /* height: 300px; */
+        position: relative;
+      }
+
+      .jet-logo__link {
+        margin-left: 20px;
+        padding-top: 10px;
+      }
+
+      /* .carousel-item {
+          height: 40vh;
+        } */
+
+      .slide_title {
+        color: #25292d;
+        font-family: "Rubik", Sans-serif;
+        text-transform: uppercase;
+        text-align: left;
+        font-size: 44px;
+        line-height: 51px;
+        margin-right: 10px;
+      }
+
+      .d-block {
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+      }
+
+      .orderBtn {
+        height: 60px;
+        width: 236px;
+        background-color: #53ae3b;
+        border-radius: 10px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-family: "Rubik", Sans-serif;
+        position: absolute;
+        top: 80%;
+      }
+
+      .food {
+        display: block;
+      }
+
+      .elementor-widget-container img {
+        width: 90%;
+        height: 90%;
+      }
+
+      .carousel-indicators {
+        top: 620px;
+      }
+
+
+
+      .head_title {
+        position: relative;
+      }
+
+      #section07 {
+        position: relative;
+      }
+
+      .headline__label3 {
+        position: absolute;
+        left: 0;
+      }
+
+      .headline__label4 {
+        position: absolute;
+        left: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 2. 引入 bootstrap.bundle.js 才可以使用元件 -->
+  <script src="./js/bootstrap.bundle.js"></script>
+
+  <!-- 導覽列 -->
+  <div id="section01">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a href="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/" class="jet-logo__link">
+          <img
+            src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/bl-3-Copy-1.png"
+            class="jet-logo__img" alt="Foodcom" width="120" height="79"
+            srcset="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/bl-3-1.png 2x">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          </ul>
+          <div class="d-flex">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">ABOUT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">MENU</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">GALLERY</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">CONTACT</a>
+              </li>
+            </ul>
+            </d>
+          </div>
+        </div>
+    </nav>
+  </div>
+
+  <div id="section02">
+    <div id="carouselExampleCaptions" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+          aria-label="Slide 4"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./img/slide-01.webp" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-md-block">
+            <h5 class="slide_title">Don't<br> eat less. <br>Just<br> eat real.</h5>
+            <div class="orderBtn">ORDER CATERING ONLINE</div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="./img/slide-02.webp" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-md-block">
+            <h5 class="slide_title"> select <br> delicious<br> try<br> special.</h5>
+            <div class="orderBtn">ORDER CATERING ONLINE</div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="./img/slide-03.webp" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-md-block">
+            <h5 class="slide_title">special<br> tastes<br> and <br>looks.</h5>
+            <div class="orderBtn">ORDER CATERING ONLINE</div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="./img/slide-04.webp" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-md-block">
+            <h5 class="slide_title">european <br>cuisine<br> world<br> tastes.</h5>
+            <div class="orderBtn">ORDER CATERING ONLINE</div>
+          </div>
+        </div>
+      </div>
+      <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button> -->
+    </div>
+  </div>
+
+  <!-- card -->
+  <div id="section03">
+    <span class="headline__part headline__first"><span class="headline__label">Welcome to Foodcom</span></span>
+    <!-- <span class="headline__part headline__second"><span class="headline__label2">Welcome to Foodcom</span></span> -->
+    <div class="divColumn">
+      <div class="divider"></div>
+    </div>
+    <div class="contentBlock">
+      <div class="content">We welcome you to a delicious feast of exquisite dishes in Artichaut. With a wide range of
+        world cuisines to choose from, we guarantee you a sumptuous feast experience in our restaurant! Here you will
+        dive into a friendly and romantic atmosphere and enjoy our haute cuisine. With our great selection of dishes
+        from all over the world you can feel yourself as a traveler and true gourmet!</div>
+    </div>
+    <div class="elementor-widget-container">
+      <img decoding="async" width="576" height="36"
+        src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/figure-1.png"
+        class="attachment-large size-large wp-image-25" alt=""
+        srcset="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/figure-1.png 576w, https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/figure-1-300x19.png 300w, https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/figure-1-570x36.png 570w"
+        sizes="(max-width: 576px) 100vw, 576px">
+    </div>
+  </div>
+
+  <div id="section04">
+    <div class="food">
+      <div class="elementor-widget-container steakimg">
+        <img data-aos="slide-left" data-aos-duration="1500" decoding="async" fetchpriority="high" width="571"
+          height="572"
+          src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/home-img-1.png"
+          class="attachment-large size-large wp-image-37" alt=""
+          srcset="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/home-img-1.png 571w, https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/home-img-1-150x150.png 150w, https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/home-img-1-300x300.png 300w, https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/home-img-1-230x230.png 230w, https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/home-img-1-400x400.png 400w"
+          sizes="(max-width: 571px) 100vw, 571px">
+      </div>
+      <!-- aos動畫data-aos="slide-left" data-aos-duration="1000" -->
+      <div data-aos="slide-right" data-aos-duration="1500" class="price-list price-list-steak">
+        <ul class="price-list_ul">
+          <li class="price-list__item">
+            <span class="heading-title">Main Menu</span>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">GARLIC SHRIMP &amp; TONNARELLI PASTA</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$19.99</div>
+            </div>
+            <div class="price-list__item-desc">Serrano ham, spinach, roasted red peppers, tomato, pil pil sauce</div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">GRILLED HANGER STEAK</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$25.50</div>
+            </div>
+            <div class="price-list__item-desc">Serrano ham, spinach, roasted red peppers, tomato, pil pil sauce</div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">PAN ROASTED ‘FLORIDA KEYS’ MAHI MAHI</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$15.50</div>
+            </div>
+            <div class="price-list__item-desc">Serrano ham, spinach, roasted red peppers, tomato, pil pil sauce</div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">GRILLED FREE RANGE CHICKEN SALAD</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$19.99</div>
+            </div>
+            <div class="price-list__item-desc">Mesclun greens, pepperjack cheese, bacon, avocado, corn, tomato,
+              cucumbers</div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">GRILLED BBQ BABY BACK RIBS</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$23.00</div>
+            </div>
+            <div class="price-list__item-desc">Hibiscus sweet ranch coleslaw, hand cut fries</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="food">
+      <div class="elementor-widget-container">
+        <img data-aos="slide-right" data-aos-duration="1500" decoding="async" width="571" height="572"
+          src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/home-img-2.png"
+          class="attachment-large size-large wp-image-46" alt=""
+          srcset="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/home-img-2.png 571w, https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/home-img-2-150x150.png 150w, https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/home-img-2-300x300.png 300w, https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/home-img-2-230x230.png 230w, https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/home-img-2-400x400.png 400w"
+          sizes="(max-width: 571px) 100vw, 571px">
+      </div>
+      <!-- aos動畫data-aos="slide-left" data-aos-duration="1000" -->
+      <div data-aos="slide-left" data-aos-duration="1500" class="price-list">
+        <ul class="price-list_ul">
+          <li class="price-list__item">
+            <span class="heading-title">DINNER</span>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">CHICKEN LIVER PARFAIT</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$23.80</div>
+            </div>
+            <div class="price-list__item-desc">Chicken, onion, vegetable oil, Sour cream sauce, pepper, salt</div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">ITALIAN TASTING PLATTER</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$25.50</div>
+            </div>
+            <div class="price-list__item-desc">Three Italian Favorites: Baked Clams, Fried Calamari and Stuffed Shrimp
+            </div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">PAN ROASTED ‘FLORIDA KEYS’ MAHI MAHI</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$15.50</div>
+            </div>
+            <div class="price-list__item-desc">Serrano ham, spinach, roasted red peppers, tomato, pil pil sauce</div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">CRAB CONGEE</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$19.99</div>
+            </div>
+            <div class="price-list__item-desc">Biscuits with fresh sausage patties & country gravys</div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">SALT AND PEPPER CALAMARI</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$23.00</div>
+            </div>
+            <div class="price-list__item-desc">Rocket, lime, chipotle aioli</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="section05" class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <a href="#">
+          <img class="w-100 mb-3" decoding="async" loading="lazy"
+            src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/banner-1.png"
+            alt="">
+        </a>
+      </div>
+
+
+
+      <div class="col-sm-12 col-md-4">
+        <a href="#">
+          <img class="w-100 mb-3" decoding="async" loading="lazy"
+            src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/banner-2.png"
+            alt="">
+        </a>
+      </div>
+
+      <div class="col-sm-12 col-md-4">
+        <a href="#">
+          <img class="w-100 mb-3" decoding="async" loading="lazy"
+            src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/banner-3.png"
+            alt="">
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="section06" class="container">
+    <div class="food row">
+      <!-- aos動畫data-aos="slide-left" data-aos-duration="1000" -->
+      <div data-aos="slide-right" data-aos-duration="1500" class="price-list col-sm-12 col-md-6">
+        <ul class="price-list_ul">
+          <li class="price-list__item">
+            <span class="heading-title">Breakfast</span>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">WESTERN SUNRISE</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$19.99</div>
+            </div>
+            <div class="price-list__item-desc">Two fried eggs with cheese & two breakfast meats made to perfection</div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">CORNISH-MACKEREL</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$15.50</div>
+            </div>
+            <div class="price-list__item-desc">CORNISH-MACKEREL</div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">ROASTED STEAK ROULADE</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$35.50</div>
+            </div>
+            <div class="price-list__item-desc">Parsley with apple cider vinegar, salt, sugar & spices</div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">“COUNTRY” BREAKFAST</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$19.99</div>
+            </div>
+            <div class="price-list__item-desc">Biscuits with fresh sausage patties & country gravy</div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">SALT AND PEPPER CALAMARI</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$23.00</div>
+            </div>
+            <div class="price-list__item-desc">Rocket, lime, chipotle aioli</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- aos動畫data-aos="slide-left" data-aos-duration="1000" -->
+      <div data-aos="slide-left" data-aos-duration="1500" class="price-list col-sm-12 col-md-6">
+        <ul class=" price-list_ul">
+          <li class="price-list__item">
+            <span class="heading-title">Lunch</span>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">CORNISH-MACKEREL</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$15.50</div>
+            </div>
+            <div class="price-list__item-desc">Cornish mackerel, marinated tomatoes, fragrant curry, tamarillo</div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">ROASTED STEAK ROULADE</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$35.50</div>
+            </div>
+            <div class="price-list__item-desc">Parsley with apple cider vinegar, salt, sugar & spices</div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">SALT AND PEPPER CALAMARI</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$23.00</div>
+            </div>
+            <div class="price-list__item-desc">Rocket, lime, chipotle aioli</div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">CRAB CONGEE</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$19.99</div>
+            </div>
+            <div class="price-list__item-desc">Biscuits with fresh sausage patties & country gravy</div>
+          </li>
+          <li class="price-list__item">
+            <div class="foodList">
+              <p class="price-list__item-title">WESTERN SUNRISE</p>
+              <div class="price-list__item-separator"></div>
+              <div class="price-list__item-price">$23.80</div>
+            </div>
+            <div class="price-list__item-desc">Two fried eggs with cheese & two breakfast meats made to perfection</div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="viewArea mb-3">
+    <div class="viewBtn">VIEW ALL MENU</div>
+  </div>
+
+  <div id="section07" class="container">
+    <span class="headline__part headline__first"><span class="headline__label">Our Gallery</span></span>
+    <!-- <span class="headline__part headline__warm"><span class="headline__label3">Warm Atmosphere</span></span> -->
+    <div class="divColumn">
+      <div class="divider"></div>
+    </div>
+  </div>
+
+
+  <div id="section08">
+    <div class="row w-100 m-auto">
+      <div class="col-sm-12 col-md-6 imgdiv">
+        <img decoding="async" class="w-100 mb-3"
+          src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/project-1.png">
+      </div>
+      <div class="col-sm-12 col-md-6 imgdiv">
+        <img decoding="async" class="w-100 mb-3"
+          src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/project-2.png">
+      </div>
+    </div>
+    <div class="row w-100 m-auto">
+      <div class="col-sm-12 col-md-6 imgdiv">
+        <img class="w-100 mb-3"
+          src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/home-img-3.png">
+        <img class="w-100 mb-3"
+          src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/home-img-4.png">
+      </div>
+      <div class="col-sm-12 col-md-6 imgdiv">
+        <img class="w-100 mb-3"
+          src="https://ld-wp73.template-help.com/wordpress/prod_19755/v3/wp-content/uploads/2018/06/project-11.png">
+      </div>
+    </div>
+
+    <div id="section09">
+      <div class="head_title">
+        <span class="headline__part headline__first"><span class="headline__label">Reservation</span></span>
+        <!-- <span class="headline__part headline__warm"><span class="headline__label4">Warm Atmosphere</span></span> -->
+      </div>
+      <div class="divColumn">
+        <div class="divider"></div>
+      </div>
+    </div>
+
+    <div id="section10" class="container">
+      <div class="row h-auto">
+        <div class="col-xs-12 col-sm-12 col-md-6">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7229.409399923957!2d121.41554954961366!3d25.044093658414152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bec9ad74b1%3A0xa639904a89f26435!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5YyX5Z-65a6c6Iqx6YeR6aas5YiG572y5rOw5bGx6IG35qWt6KiT57e05aC0!5e0!3m2!1szh-TW!2stw!4v1702196477452!5m2!1szh-TW!2stw"
+            width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-6">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="Name*">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="Phone*">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="ddd">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="Time*">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-12 col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="Seats*">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="Email*">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 mb-3">
+              <textarea class="form-control" rows="7" placeholder="notes"></textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 mb-3 text-center">
+              <button type="button" class="btn btn-danger btn-lg m-auto">RESERVE</button>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+      <!-- 建立aos動畫 -->
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+
+
+
+
+
+
+
+
+      <script>
+        const priceItems = document.querySelectorAll('.foodList');
+
+        priceItems.forEach(item => {
+          const title = item.querySelector('.price-list__item-title');
+          const price = item.querySelector('.price-list__item-price');
+          const separator = item.querySelector('.price-list__item-separator');
+
+          const titleWidth = title.offsetWidth;
+          const priceWidth = price.offsetWidth;
+          const lineWidth = item.offsetWidth - titleWidth - priceWidth;
+
+          separator.style.width = lineWidth + 'px';
+        });
+
+      </script>
+</body>
+
+</html>
